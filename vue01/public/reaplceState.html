@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history.replaceState() 改變網址但不 reload 頁面的方法</title>
+</head>
+
+<body>
+    <h1>history.replaceState() 改變網址但不 reload 頁面的方法</h1>
+
+    <button data-age="38">1</button>
+    <button data-age="28">2</button>
+
+    <script>
+        console.log(location.href);
+        console.log(location.pathname);
+        history.replaceState(null, "", `${location.pathname}?age=18`)
+
+        document.querySelectorAll("button")
+            .forEach((btn) => {
+                btn.addEventListener("click", function () {
+                    console.log(this.dataset.age);
+                    history.replaceState(null, "", `${location.pathname}?age=${this.dataset.age}`)
+                });
+            });
+    </script>
+</body>
+
+</html>
