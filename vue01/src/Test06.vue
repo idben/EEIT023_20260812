@@ -9,7 +9,11 @@ const lastName = ref('Doe')
 
 const fullName = computed({
     get() {
-        return `${firstName.value} ${lastName.value}`
+        // return `${firstName.value} ${lastName.value}`
+        // ['Ben', 'Chen'].join(' ') // 'Ben Chen'
+        // ['Ben', ''].join(' ') // 'Ben '
+        // ['Ben', ''].fileter(Boolean).join(' ') // 'Ben'
+        return [firstName.value, lastName.value].filter(Boolean).join(' ')
     },
     set(newValue) {
         console.log(newValue);
