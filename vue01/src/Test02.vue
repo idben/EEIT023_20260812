@@ -50,7 +50,8 @@ const handleGreet2 = function () {
     <!-- 缺少參數不傳 -->
     <!-- <button @click="handleGreet(props.name)">打招呼</button> -->
     <button @click="handleGreet2">打招呼</button>
-    <button @click="emit('remove', props.name)">移除</button>
+    <!-- template 中, 有 $emit 這個不需定義就可以用的方法 -->
+    <button @click="$emit('remove', props.name)">移除</button>
 </template>
 
 <style scoped></style>
